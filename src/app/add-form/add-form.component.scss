@@ -1,0 +1,35 @@
+.check-list {
+  margin-top: 4%;
+  &__header {
+    font-size: 2vw;
+    color: black;
+  }
+  &__actions {
+    margin: 8px 0px 8px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__btn_green {
+    background-color: #0de20d;
+    border: none;
+    color: white;
+    height: 32px;
+    width: 20%;
+    &:hover {
+      background-color: green;
+      cursor: pointer;
+    }
+  }
+  &__btn_red {
+    background-color: red;
+    border: none;
+    color: white;
+    height: 32px;
+    width: 20%;
+    &:hover {
+      background-color: rgb(160, 0, 0);
+      cursor: pointer;
+    }
+  }
+}
