@@ -1,10 +1,33 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 8px;
+
+  &__counter {
+    display: flex;
+    flex-direction: row;
+  }
+  &__text {
+    margin-right: 8px;
+    &_complete {
+      color: green;
+    }
+  }
+
+  &__clearAll {
+    font-size: 16px;
+    cursor: pointer;
+  }
+}
+
 .check-card {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   margin: 8px 0px 8px 0px;
-  border: 1px solid lightgray;
+  border: 1px solid rgb(114, 100, 100);
   padding: 12px;
 
   &_complete {
