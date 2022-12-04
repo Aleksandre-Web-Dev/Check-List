@@ -2,18 +2,18 @@
   <div class="check-list">
     <h1 class="check-list__header">To Do List</h1>
     <div class="form-block check-list__add">
-      <label for="name" class="form-block__label">Title</label>
+      <label for="name" class="form-block__label">Task Title</label>
       <input
         type="text"
         name="checkItem"
         id="checkItem"
         class="form-block__input"
-        placeholder="Enter Check Item Title"
-        [(ngModel)]="checkListTitle"
+        placeholder="Enter Task Title"
+        [(ngModel)]="taskTitle"
       />
     </div>
     <div class="check-list__actions">
-      <button class="btn check-list__btn_red" (click)="clearInputField()">
+      <button class="btn check-list__btn_red" (click)="clearInput()">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -27,7 +27,7 @@
           /></svg
         >Clear
       </button>
-      <button class="btn check-list__btn_green" (click)="addCheckItem()">
+      <button class="btn check-list__btn_green" (click)="addTask()">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -43,6 +43,4 @@
     <hr />
   </div>
 </div>
-
-<!-- <app-complete-list></app-complete-list> -->
-<app-check-list-item *ngFor="let checkItem of checkList" [title]="checkItem"></app-check-list-item>
+<app-check-list-item [checkList]="checkList"></app-check-list-item>

@@ -1,24 +1,32 @@
 import { Component } from '@angular/core';
 
+export interface ITask {
+  taskTitle: String;
+  creationDate: Date;
+  isComplete: Boolean;
+}
+
 @Component({
   selector: 'app-add-form',
   templateUrl: './add-form.component.html',
   styleUrls: ['./add-form.component.scss'],
 })
 export class AddFormComponent {
-  checkListTitle: string = '';
-  checkList: Array<string> = [];
-  completeCheckList : Array<string> =[]
-  addCheckItem() {
-    this.checkListTitle.trim()
-    this.checkList.push(this.checkListTitle);
-    console.log(this.checkList);
-  }
-  clearInputField() {
-    this.checkListTitle = '';
+  taskTitle: String = '';
+  creationDate: Date = new Date();
+  isComplete: Boolean = false;
+  checkList: Array<ITask> = [];
+
+  addTask() {
+    const task = {
+      taskTitle: this.taskTitle.trim(),
+      creationDate: this.creationDate,
+      isComplete: this.isComplete,
+    };
+    this.checkList.push(task);
   }
 
-  addToCompleteList(){
-    
+  clearInput() {
+    this.taskTitle = '';
   }
 }

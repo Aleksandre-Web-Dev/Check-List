@@ -1,10 +1,29 @@
 <div class="wrapper">
-  <div class="check-card">
-    <p class="check-card__title">
-      {{ title }}
-    </p>
+  <div
+    class="check-card"
+    *ngFor="let checkListItem of checkList; let idx = index"
+    [class.check-card_complete]="checkListItem.isComplete"
+  >
+    <div class="check-card__header">
+      <p class="check-card__title">{{ checkListItem.taskTitle }}</p>
+      <p class="check-card__status">
+        Status:
+        <span
+          class="check-card__statusText"
+          [ngStyle]="{ color: checkListItem.isComplete ? 'green' : 'darkgray' }"
+          >{{ checkListItem.isComplete ? "Complete" : "Incomplete" }}</span
+        >
+      </p>
+      <p class="check-card__creationDate">
+        Creation Date: {{ checkListItem.creationDate | date : "short" }}
+      </p>
+    </div>
     <div class="check-card__actions">
-      <button class="btn check-card__btn check-card__btn_complete">
+      <button
+        *ngIf="!checkListItem.isComplete"
+        class="btn check-card__btn check-card__btn_complete"
+        (click)="markAsComplete(idx)"
+      >
         Mark as Complete<svg
           xmlns="http://www.w3.org/2000/svg"
           height="24"
@@ -16,7 +35,10 @@
           />
         </svg>
       </button>
-      <button class="btn check-card__btn check-card__btn_remove">
+      <button
+        class="btn check-card__btn check-card__btn_remove"
+        (click)="removeTask(idx)"
+      >
         Remove
         <svg
           xmlns="http://www.w3.org/2000/svg"
